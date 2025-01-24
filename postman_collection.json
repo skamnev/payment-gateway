@@ -1,0 +1,117 @@
+{
+    "info": {
+        "name": "Payment System API",
+        "description": "Test API for payment processing system",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Set Settings",
+            "request": {
+                "url": "http://localhost:3000/api/settings",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"commissionA\": 5, \"commissionB\": 2, \"blockSum\": 10}"
+                }
+            }
+        },
+        {
+            "name": "Add Shop",
+            "request": {
+                "url": "http://localhost:3000/api/add-shop",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\": \"My Shop\", \"commissionC\": 3}"
+                }
+            }
+        },
+        {
+            "name": "Accept Payment",
+            "request": {
+                "url": "http://localhost:3000/api/payments/accept",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"shopId\": 1, \"amount\": 100}"
+                }
+            }
+        },
+        {
+            "name": "Process Payments",
+            "request": {
+                "url": "http://localhost:3000/api/payments/process",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"paymentIds\": [1]}"
+                }
+            }
+        },
+        {
+            "name": "Complete Payments",
+            "request": {
+                "url": "http://localhost:3000/api/payments/complete",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"paymentIds\": [1]}"
+                }
+            }
+        },
+        {
+            "name": "Withdraw Payments",
+            "request": {
+                "url": "http://localhost:3000/api/payments/withdraw",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"shopId\": 1}"
+                }
+            }
+        }
+    ]
+}
